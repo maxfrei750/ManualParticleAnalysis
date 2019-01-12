@@ -107,8 +107,7 @@ for inputFile = inputFiles'
     end
     
     % Restore view.
-    api = iptgetapi(hScrollPanel);
-    api.setMagnification(1);
+    zoom('reset');
     
     %% Store data
     % Construct output filename

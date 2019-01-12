@@ -123,34 +123,24 @@ while how_many ~= 0
             break;
         end
         
-        if(char == uint8('+')) % & how_many ~= 0)
-            % if the return key was pressed, char will == 13,
-            % and that's our signal to break out of here whether
-            % or not we have collected all the requested data
-            % points.
-            % If this was an early breakout, don't include
-            % the <Return> key info in the return arrays.
-            % We will no longer count it if it's the last input.
-            scrollpanel_handle = get(gcf,'children');
-            api = iptgetapi(scrollpanel_handle);
-            magnification = api.getMagnification();
-            api.setMagnification(magnification*2);
+        %% Zoom
+        if(char == uint8('+'))
+            % Zoom in
+            zoom('in');
             char = [];
             continue;
         end
         
-        if(char == uint8('-')) % & how_many ~= 0)
-            % if the return key was pressed, char will == 13,
-            % and that's our signal to break out of here whether
-            % or not we have collected all the requested data
-            % points.
-            % If this was an early breakout, don't include
-            % the <Return> key info in the return arrays.
-            % We will no longer count it if it's the last input.
-            scrollpanel_handle = get(gcf,'children');
-            api = iptgetapi(scrollpanel_handle);
-            magnification = api.getMagnification();
-            api.setMagnification(magnification/2);
+        if(char == uint8('-'))
+            % Zoom out
+            zoom('out');
+            char = [];
+            continue;
+        end
+        
+        if(char == uint8('0'))
+            % Reset zoom
+            zoom('reset');
             char = [];
             continue;
         end
