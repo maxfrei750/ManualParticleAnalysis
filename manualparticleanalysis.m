@@ -40,8 +40,12 @@ for inputFile = inputFiles'
         'Parent',hAxis);
     % Create interactive scroll panel.
     hScrollPanel = imscrollpanel(hFigure,hImage);
-    % Display an overview panel.
-    imoverview(hImage)
+    
+    % Display overview panel.
+    hOverview = imoverview(hImage);
+    % Position overview panel on the top left of the main window.
+    hOverview.Position(2) = ....
+        hFigure.Position(2)+hFigure.Position(4)-hOverview.Position(3);
     
     %% Loop until the user skips to the next image.
     iParticle = 0;
