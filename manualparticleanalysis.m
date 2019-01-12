@@ -63,7 +63,8 @@ for inputFile = inputFiles'
             if ~isempty(EllipseParameterList_px_temp.a) % Success.
                 
                 % Store parameters.
-                EllipseParameterList_px(iParticle) = EllipseParameterList_px_temp;
+                EllipseParameterList_px(iParticle) = ...
+                    EllipseParameterList_px_temp; %#ok<SAGROW>
                 
                 % Draw ellipse.
                 lastPlotHandle = draw_ellipse( ...
@@ -81,11 +82,13 @@ for inputFile = inputFiles'
             
             % Check if
             if ~isempty(EllipseParameterList_px_temp.a)
-                EllipseParameterList_px(iParticle) = EllipseParameterList_px_temp;
+                EllipseParameterList_px(iParticle) = ...
+                    EllipseParameterList_px_temp; %#ok<SAGROW>
             end
             
             % Draw the circle.
-            lastPlotHandle = draw_ellipse(EllipseParameterList_px(iParticle),hAxis);
+            lastPlotHandle = ...
+                draw_ellipse(EllipseParameterList_px(iParticle),hAxis);
         else
             % Construct a question dialog with three options
             choice = questdlg('How would you like to continue?', ...
@@ -98,7 +101,8 @@ for inputFile = inputFiles'
                     iParticle = iParticle-1;
                 case 'Undo Last Circle'
                     delete(lastPlotHandle)
-                    EllipseParameterList_px = EllipseParameterList_px(1:iParticle-1);
+                    EllipseParameterList_px = ...
+                        EllipseParameterList_px(1:iParticle-1);
                     iParticle = iParticle-1;
                 case 'Next Image'
                     break;
