@@ -112,7 +112,8 @@ while how_many ~= 0
             end
         end
         
-        if(char == 13) % & how_many ~= 0)
+        %% Abort
+        if(char == 13) % Return key
             % if the return key was pressed, char will == 13,
             % and that's our signal to break out of here whether
             % or not we have collected all the requested data
@@ -145,18 +146,12 @@ while how_many ~= 0
             continue;
         end
         
-        if(button == 4) % & how_many ~= 0)
+        if(button == 4)
+            % Do nothing.
             continue;
         end
 
-        if(button == 3) % & how_many ~= 0)
-            % if the return key was pressed, char will == 13,
-            % and that's our signal to break out of here whether
-            % or not we have collected all the requested data
-            % points.
-            % If this was an early breakout, don't include
-            % the <Return> key info in the return arrays.
-            % We will no longer count it if it's the last input.
+        if(button == 3) % right mouse button
             axes_handle = gca;
             scrollpanel_handle = get(gcf,'children');
             api = iptgetapi(scrollpanel_handle);
@@ -180,7 +175,7 @@ while how_many ~= 0
             continue;
         end
         
-        if(button == 2) % & how_many ~= 0)
+        if(button == 2) % middle mouse button
             if length(out1)>=1
                 out1(end)= [];
                 y(end)= [];
@@ -201,8 +196,6 @@ while how_many ~= 0
         if ~(button == 2)
         pt = get(axes_handle, 'CurrentPoint');
         how_many = how_many - 1;
-        
-        
         
         out1 = [out1;pt(1,1)]; %#ok<AGROW>
         y = [y;pt(1,2)]; %#ok<AGROW>
@@ -246,11 +239,6 @@ while how_many ~= 0
             end
         end
         
-        
-        %draw ellipse;
-        
-        
-        %                 drawnow;
     end
 end
 
