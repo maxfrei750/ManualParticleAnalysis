@@ -14,6 +14,8 @@ createdirectory(outputFolder);
 inputFiles = dir(fullfile(inputFolder,inputFileFilter));
 
 for inputFile = inputFiles'
+    clear('EllipseParameterList_px');
+    
     % Get input file path.
     inputFilePath = fullfile(inputFile.folder,inputFile.name);
     display(inputFilePath);
