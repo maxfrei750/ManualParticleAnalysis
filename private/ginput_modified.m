@@ -195,6 +195,11 @@ while how_many ~= 0
                 y(end)= [];
                 b(end) = [];
             end
+            
+            if length(out1)<3 && ~isempty(plothandle_ellipse)
+                plothandle_ellipse.delete;
+                plothandle_ellipse = [];
+            end
         end
         
         axes_handle = gca;
