@@ -189,6 +189,12 @@ for inputFile = inputFiles'
     end
     
     %% Close current image.
-    close(hFigure);
+    if ishandle(hFigure)
+        close(hFigure)
+    end
+    
+    if ishandle(hHelp)
+        close(hHelp)
+    end
     
 end
