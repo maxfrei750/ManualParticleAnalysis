@@ -186,7 +186,4 @@ for inputFile = inputFiles'
     %% Close current image.
     close(hFigure);
     
-    %% Clear EllipseParameterList_px
-    EllipseParameterList_px(:) = [];
-    
 end
