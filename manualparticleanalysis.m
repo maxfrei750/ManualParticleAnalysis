@@ -130,7 +130,7 @@ for inputFile = inputFiles'
                 % Draw ellipse.
                 lastPlotHandles(end+1) = draw_ellipse( ...
                     EllipseParameterList_px(iParticle), ...
-                    hAxis);
+                    hAxis); %#ok<SAGROW>
             else % Fail.
                 % Decrement particle counter.
                 iParticle = iParticle-1;
@@ -153,7 +153,7 @@ for inputFile = inputFiles'
             
             % Draw the circle.
             lastPlotHandles(end+1) = ...
-                draw_ellipse(EllipseParameterList_px(iParticle),hAxis);
+                draw_ellipse(EllipseParameterList_px(iParticle),hAxis); %#ok<SAGROW>
             
         else
             
