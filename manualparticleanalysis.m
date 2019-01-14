@@ -155,7 +155,9 @@ for inputFile = inputFiles'
     outputFilePath = fullfile(outputFolder,outputFileName);
     
     % Write data
-    save(outputFilePath,'EllipseParameterList_px');
+    if exist('EllipseParameterList_px','var')
+        save(outputFilePath,'EllipseParameterList_px');
+    end
     
     %% Close current image.
     close(hFigure);
