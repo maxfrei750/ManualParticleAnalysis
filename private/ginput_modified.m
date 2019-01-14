@@ -74,13 +74,8 @@ while how_many ~= 0
         waserr = 1;
     end
     if(waserr == 1)
-        if(ishghandle(fig))
-            cleanup(c);
-            error(message('MATLAB:ginput:Interrupted'));
-        else
-            cleanup(c);
-            error(message('MATLAB:ginput:FigureDeletionPause'));
-        end
+        cleanup(c);
+        return
     end
     % g467403 - ginput failed to discern clicks/keypresses on the figure it was
     % registered to operate on and any other open figures whose handle
