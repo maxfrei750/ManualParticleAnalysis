@@ -211,7 +211,7 @@ while how_many ~= 0
         end
         
         %plot input points
-        if ~(exist('plothandle_points')) && length(out1)>=1
+        if isempty(plothandle_points) && length(out1)>=1
             hold on;
             plothandle_points = plot(out1,y,'b.','XDataSource','out1','YDataSource','y','Parent',gca(fig));
         else
@@ -230,7 +230,7 @@ while how_many ~= 0
             ellipse_y_r     = ellipse_t.Y0 + ellipse_t.b*sin( theta_r );
             rotated_ellipse = R * [ellipse_x_r;ellipse_y_r];
             
-            if ~(exist('plothandle_ellipse'))
+            if isempty(plothandle_ellipse)
                 hold on
                 plothandle_ellipse = plot( rotated_ellipse(1,:),rotated_ellipse(2,:),'b-','XDataSource','rotated_ellipse(1,:)','YDataSource','rotated_ellipse(2,:)','Parent',gca(fig));
             else
