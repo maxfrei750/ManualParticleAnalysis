@@ -107,7 +107,7 @@ while how_many ~= 0
             end
         end
         
-        %% Abort
+        %% Quit gathering points.
         if(char == 13) % Return key
             % if the return key was pressed, char will == 13,
             % and that's our signal to break out of here whether
