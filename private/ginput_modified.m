@@ -145,7 +145,7 @@ while how_many ~= 0
             % Do nothing.
             continue;
         end
-
+        
         if(button == 3) % right mouse button
             axes_handle = gca;
             scrollpanel_handle = get(gcf,'children');
