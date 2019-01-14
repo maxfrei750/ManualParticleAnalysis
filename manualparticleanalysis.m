@@ -5,6 +5,7 @@ close all;
 % Parameters.
 inputFolder = 'testimages';
 inputFileFilter = '*.tif';
+doSkipFiles = true;
 
 % Create output folder.
 outputFolder = inputFolder;
@@ -40,6 +41,20 @@ hHelpText.Units = 'normalized';
 hHelpText.Position = [0 0 1 1];
 
 for inputFile = inputFiles'
+    
+    % Construct output filename
+    [~,outputFileName,~] = fileparts(inputFile.name);
+    outputFileName = [outputFileName '_manual_analysis.mat']; %#ok<AGROW>
+    
+    outputFilePath = fullfile(outputFolder,outputFileName);
+    
+    % If desired: Skip files that were already evaluated.
+    if doSkipFiles
+        if exist(outputFilePath,'file')
+            continue
+        end
+    end
+    
     clear('EllipseParameterList_px');
     lastPlotHandles = gobjects(0);
     
@@ -178,13 +193,6 @@ for inputFile = inputFiles'
     zoom('reset');
     
     %% Store data
-    % Construct output filename
-    [~,outputFileName,~] = fileparts(inputFile.name);
-    outputFileName = [outputFileName '_manual_analysis.mat']; %#ok<AGROW>
-    
-    outputFilePath = fullfile(outputFolder,outputFileName);
-    
-    % Write data
     if exist('EllipseParameterList_px','var')
         save(outputFilePath,'EllipseParameterList_px');
     end
