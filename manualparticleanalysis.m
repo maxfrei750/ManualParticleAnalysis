@@ -50,8 +50,8 @@ for inputFile = inputFiles'
     hOverview.Position(2) = ....
         hFigure.Position(2)+hFigure.Position(4)-hOverview.Position(3);
     
-    % Display help window.
-    hHelp = figure( ...
+    
+    % Position help panel on the top right of the main window.
         'Name','Help', ...
         'NumberTitle','off');
     % Position overview panel on the top right of the main window.
