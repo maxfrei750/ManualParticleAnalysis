@@ -268,15 +268,20 @@ else
     out1 = [out1 y];
 end
 
-if exist('plothandle_points')
-    %clear points
+clearplots(plothandle_points,plothandle_ellipse)
+
+end
+
+function clearplots(plothandle_points,plothandle_ellipse)
+if isa(plothandle_points,'matlab.graphics.chart.primitive.Line')
+    % Clear points
     delete(plothandle_points)
 end
 
-if exist('plothandle_ellipse')
+if isa(plothandle_ellipse,'matlab.graphics.chart.primitive.Line')
+    % Clear ellipse
     delete(plothandle_ellipse)
 end
-
 end
 
 function valid = isPositiveScalarIntegerNumber(how_many)
