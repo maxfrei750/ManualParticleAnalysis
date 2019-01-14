@@ -101,7 +101,18 @@ for inputFile = inputFiles'
         % Get number of points.
         nPoints = numel(xList);
         
-        if nPoints >= 7   % For 7+ points fit an ellipse.
+        if strcmp(pressedKey,'backspace')
+            
+            % TODO: Support deletion of all ellipses in reversed order.
+            if exist('lastPlotHandle','var')
+                delete(lastPlotHandle)
+                EllipseParameterList_px = ...
+                    EllipseParameterList_px(1:iParticle-1);
+                iParticle = iParticle-1;
+                clear('lastPlotHandle')
+            end
+            
+        elseif nPoints >= 7   % For 7+ points fit an ellipse.
             
             % Fit the points with an ellipse.
             EllipseParameterList_px_temp = fit_ellipse(xList,yList);
