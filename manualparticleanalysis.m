@@ -98,6 +98,7 @@ for inputFile = inputFiles'
             
             return
         end
+        
         % Get number of points.
         nPoints = numel(xList);
         
