@@ -15,6 +15,7 @@ inputFiles = dir(fullfile(inputFolder,inputFileFilter));
 
 for inputFile = inputFiles'
     clear('EllipseParameterList_px');
+    lastPlotHandles = gobjects(0);
     
     % Get input file path.
     inputFilePath = fullfile(inputFile.folder,inputFile.name);
@@ -104,13 +105,12 @@ for inputFile = inputFiles'
         
         if strcmp(pressedKey,'backspace')
             
-            % TODO: Support deletion of all ellipses in reversed order.
-            if exist('lastPlotHandle','var')
-                delete(lastPlotHandle)
+            if ~isempty(lastPlotHandles)
+                delete(lastPlotHandles(end))
+                lastPlotHandles(end) = [];
                 EllipseParameterList_px = ...
-                    EllipseParameterList_px(1:iParticle-1);
-                iParticle = iParticle-1;
-                clear('lastPlotHandle')
+                    EllipseParameterList_px(1:end-1);
+                iParticle = iParticle-2;
             end
             
         elseif nPoints >= 7   % For 7+ points fit an ellipse.
@@ -126,7 +126,7 @@ for inputFile = inputFiles'
                     EllipseParameterList_px_temp;
                 
                 % Draw ellipse.
-                lastPlotHandle = draw_ellipse( ...
+                lastPlotHandles(end+1) = draw_ellipse( ...
                     EllipseParameterList_px(iParticle), ...
                     hAxis);
             else % Fail.
@@ -139,14 +139,18 @@ for inputFile = inputFiles'
             % Fit circle.
             EllipseParameterList_px_temp = fit_circle([xList,yList]);
             
-            % Check if
+            % Check if the fit was succesful.
             if ~isempty(EllipseParameterList_px_temp.a)
+                disp(iParticle)
                 EllipseParameterList_px(iParticle) = ...
                     EllipseParameterList_px_temp;
+            else % Fail.
+                % Decrement particle counter.
+                iParticle = iParticle-1;
             end
             
             % Draw the circle.
-            lastPlotHandle = ...
+            lastPlotHandles(end+1) = ...
                 draw_ellipse(EllipseParameterList_px(iParticle),hAxis);
             
         else
