@@ -124,6 +124,13 @@ while how_many ~= 0
             break;
         end
         
+        %% Abort
+        if(char == 27) % Escape key
+            clearplots(plothandle_points,plothandle_ellipse)
+            out3 = 'escape';
+            return
+        end
+        
         %% Zoom
         if(char == uint8('+'))
             % Zoom in
