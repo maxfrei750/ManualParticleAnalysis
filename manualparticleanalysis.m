@@ -73,7 +73,6 @@ for inputFile = inputFiles'
     hOverview.Position(2) = ....
         hFigure.Position(2)+hFigure.Position(4)-hOverview.Position(3);
     
-    
     % Position help panel on the top right of the main window.
     hHelp.Position(1) = hFigure.Position(1)+hFigure.Position(3)+15;
     hHelp.Position(2) = hFigure.Position(2);
@@ -193,9 +192,9 @@ for inputFile = inputFiles'
     if ishandle(hFigure)
         close(hFigure)
     end
-    
-    if ishandle(hHelp)
-        close(hHelp)
-    end
-    
+end
+
+% Close help figure.
+if ishandle(hHelp)
+    close(hHelp)
 end
