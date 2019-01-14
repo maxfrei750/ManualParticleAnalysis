@@ -122,7 +122,7 @@ for inputFile = inputFiles'
                 
                 % Store parameters.
                 EllipseParameterList_px(iParticle) = ...
-                    EllipseParameterList_px_temp; %#ok<SAGROW>
+                    EllipseParameterList_px_temp;
                 
                 % Draw ellipse.
                 lastPlotHandle = draw_ellipse( ...
@@ -141,7 +141,7 @@ for inputFile = inputFiles'
             % Check if
             if ~isempty(EllipseParameterList_px_temp.a)
                 EllipseParameterList_px(iParticle) = ...
-                    EllipseParameterList_px_temp; %#ok<SAGROW>
+                    EllipseParameterList_px_temp;
             end
             
             % Draw the circle.
