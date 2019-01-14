@@ -1,4 +1,4 @@
-function [out1,out2,out3] = ginput_modified(arg1)
+function [out1,out2,out3,waserr] = ginput_modified(arg1)
 %GINPUT Graphical input from mouse.
 %   [X,Y] = GINPUT(N) gets N points from the current axes and returns
 %   the X- and Y-coordinates in length N vectors X and Y.  The cursor
