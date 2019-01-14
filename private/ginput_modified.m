@@ -189,12 +189,12 @@ while how_many ~= 0
         drawnow;
         
         if ~(button == 2)
-        pt = get(axes_handle, 'CurrentPoint');
-        how_many = how_many - 1;
-        
-        out1 = [out1;pt(1,1)]; %#ok<AGROW>
-        y = [y;pt(1,2)]; %#ok<AGROW>
-        b = [b;button]; %#ok<AGROW>
+            pt = get(axes_handle, 'CurrentPoint');
+            how_many = how_many - 1;
+            
+            out1 = [out1;pt(1,1)]; %#ok<AGROW>
+            y = [y;pt(1,2)]; %#ok<AGROW>
+            b = [b;button]; %#ok<AGROW>
         else
             button=[];
         end
