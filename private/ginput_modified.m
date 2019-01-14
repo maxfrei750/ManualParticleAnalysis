@@ -120,6 +120,7 @@ while how_many ~= 0
             % If this was an early breakout, don't include
             % the <Return> key info in the return arrays.
             % We will no longer count it if it's the last input.
+            out3 = 'return';
             break;
         end
         
