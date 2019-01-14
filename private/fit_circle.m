@@ -68,7 +68,7 @@ for iter=1:IterMax
     yold = ynew;
     ynew = A0 + xnew*(A1 + xnew*(A2 + 4.*xnew*xnew));
     if (abs(ynew)>abs(yold))
-        disp('Newton-Pratt goes wrong direction: |ynew| > |yold|');
+        % disp('Newton-Pratt goes wrong direction: |ynew| > |yold|');
         xnew = 0;
         break;
     end
@@ -77,11 +77,11 @@ for iter=1:IterMax
     xnew = xold - ynew/Dy;
     if (abs((xnew-xold)/xnew) < epsilon), break, end
     if (iter >= IterMax)
-        disp('Newton-Pratt will not converge');
+        % disp('Newton-Pratt will not converge');
         xnew = 0;
     end
     if (xnew<0.)
-        fprintf(1,'Newton-Pratt negative root:  x=%f\n',xnew);
+        % fprintf(1,'Newton-Pratt negative root:  x=%f\n',xnew);
         xnew = 0;
     end
 end

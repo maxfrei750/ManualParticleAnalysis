@@ -42,7 +42,6 @@ for inputFile = inputFiles'
     
     % Get input file path.
     inputFilePath = fullfile(inputFile.folder,inputFile.name);
-    display(inputFilePath);
     
     % Read image.
     image = imread(inputFilePath);
@@ -143,7 +142,6 @@ for inputFile = inputFiles'
             
             % Check if the fit was succesful.
             if ~isempty(EllipseParameterList_px_temp.a)
-                disp(iParticle)
                 EllipseParameterList_px(iParticle) = ...
                     EllipseParameterList_px_temp;
             else % Fail.
