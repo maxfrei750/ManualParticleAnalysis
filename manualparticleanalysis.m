@@ -85,7 +85,7 @@ for inputFile = inputFiles'
         iParticle = iParticle+1;
         
         % Let the user define the outline of an object.
-        [xList,yList] = ginput_modified();
+        [xList,yList,pressedKey,wasError] = ginput_modified();
         
         % Get number of points.
         nPoints = numel(xList);
