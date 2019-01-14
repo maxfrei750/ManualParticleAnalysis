@@ -87,6 +87,17 @@ for inputFile = inputFiles'
         % Let the user define the outline of an object.
         [xList,yList,pressedKey,wasError] = ginput_modified();
         
+        if wasError
+            if ishandle(hFigure)
+                close(hFigure)
+            end
+            
+            if ishandle(hHelp)
+                close(hHelp)
+            end
+            
+            return
+        end
         % Get number of points.
         nPoints = numel(xList);
         
