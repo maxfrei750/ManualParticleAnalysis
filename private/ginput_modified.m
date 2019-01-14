@@ -66,6 +66,10 @@ c = onCleanup(@() restoreFcn(initialState));
 drawnow
 char = 0;
 
+% Initialize plothandle_points and plothandle_ellipse.
+plothandle_points = [];
+plothandle_ellipse = [];
+
 while how_many ~= 0
     waserr = 0;
     try
