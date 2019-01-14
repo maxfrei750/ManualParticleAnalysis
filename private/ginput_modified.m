@@ -131,6 +131,13 @@ while how_many ~= 0
             return
         end
         
+        %% Abort
+        if(char == 8) % Backspace
+            clearplots(plothandle_points,plothandle_ellipse)
+            out3 = 'backspace';
+            return
+        end
+        
         %% Zoom
         if(char == uint8('+'))
             % Zoom in
