@@ -147,24 +147,22 @@ for inputFile = inputFiles'
             % Draw the circle.
             lastPlotHandle = ...
                 draw_ellipse(EllipseParameterList_px(iParticle),hAxis);
+            
         else
-            % Construct a question dialog with three options
-            choice = questdlg('How would you like to continue?', ...
-                'Image Menu', ...
-                'Continue','Undo Last Circle','Next Image', ...
-                'Continue');
+            
+            % Construct a question dialog with two options
+            choice = questdlg('Next image?', ...
+                'Next image?', ...
+                'yes','no', ...
+                'no');
             % Handle response
             switch choice
-                case 'Continue'
+                case 'no'
                     iParticle = iParticle-1;
-                case 'Undo Last Circle'
-                    delete(lastPlotHandle)
-                    EllipseParameterList_px = ...
-                        EllipseParameterList_px(1:iParticle-1);
-                    iParticle = iParticle-1;
-                case 'Next Image'
+                case 'yes'
                     break;
             end
+            
         end
     end
     
